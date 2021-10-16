@@ -11,6 +11,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import TweenOne from 'rc-tween-one';
 
 import {NavLink} from "react-router-dom";
+import {color} from "echarts";
 
 const {SubMenu} = Menu;
 const { Header, Content,Footer } = Layout;
@@ -82,38 +83,6 @@ class HomePage extends React.Component{
             ty: 0,
         }
     }
-
-
-
-    /* 从后台获取数据*/
-     // constructor(props) {
-     //     super(props);
-     //     this.state = {
-     //       data1: [],
-     //       data2: []
-     //     }
-     //   }
-     // componentDidMount() {
-     //     /*
-     //     * 页面加载时从后台获取数据
-     //     */
-     //     this.getData();
-     //   }
-     //
-     //   getData() { //请求数据函数
-     //     fetch('请求路径', {
-     //       method: 'GET'
-     //     }).then(res => res.json()).then(
-     //       data => {
-     //         this.setState({
-     //           data1: data.data1,
-     //           data2: data.data2  
-     //         })
-     //
-     //         this.demo()
-     //       }
-     //     )
-     //   }
 
     // 画图
     componentDidMount(){
@@ -209,6 +178,36 @@ class HomePage extends React.Component{
     }
     // 画图结束
 
+    /* 折线图从后台获取数据*/
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //       data1: [],
+    //       data2: []
+    //     }
+    //   }
+    // componentDidMount() {
+    //     /*
+    //     * 页面加载时从后台获取数据
+    //     */
+    //     this.getData();
+    //   }
+    //
+    //   getData() { //请求数据函数
+    //     fetch('请求路径', {
+    //       method: 'GET'
+    //     }).then(res => res.json()).then(
+    //       data => {
+    //         this.setState({
+    //           data1: data.data1,
+    //           data2: data.data2
+    //         })
+    //
+    //         this.demo()
+    //       }
+    //     )
+    //   }
+
     render(){
         const { className } = this.props;
         const { data, tx, ty } = this.state;
@@ -253,10 +252,10 @@ class HomePage extends React.Component{
                                 <div style={{position:"absolute",left:"20px",top:"70px",height:"100px",width:"20px"}}>
                                     <h1 style={{fontSize:"15px",paddingTop:10,color:'white'}}>Variation parameters</h1>
                                 </div>
-                                <div className={'aa_0'}>
+                                <div className={'aa_0'} >
                                     <Form
-                                        trigger={
-                                            <Button type="primary" style={{position:"absolute", right:"1.3%", top:"7%",backgroundColor:'#11cbd7',border:'#11cbd7 solid'}}>
+                                    trigger={
+                                            <Button type="primary" style={{position:"absolute", right:"1.3%", top:"7%",backgroundColor:'#1d5fcb',border:'#11cbd7 solid'}}>
                                                 <PlusOutlined />
                                                 Add
                                             </Button>
@@ -292,22 +291,22 @@ class HomePage extends React.Component{
                                             return true;
                                         }}
                                     >
-                                        <ProForm.Group>
+                                        <ProForm.Group >
                                             <ProFormText width="md" name="a" label="Number of meetings" placeholder="100"/>
                                             <ProFormText width="md" name="b" label="Seat spacing" placeholder="1"/>
                                             <ProFormText width="md" name="c" label="Venue width" placeholder="50"/>
 
                                         </ProForm.Group>
-                                        <ProForm.Group>
+                                        <ProForm.Group >
                                             <ProFormText width="md" name="d" label="Field curator" placeholder="50"/>
                                             <ProFormText width="md" name="e" label="Number of possible patients" placeholder="3"/>
                                         </ProForm.Group>
-                                        <ProForm.Group>
+                                        <ProForm.Group >
                                             <ProFormText width="420px" name="f" label="Meeting schedule" placeholder="['09:00:00','10:00:00','10:30:00','12:00:00','14:00:00','16:00:00']"/>
                                             <ProFormText width="md" name="g" label="Meeting status" placeholder="[0, 1, 0, 1, 0]"/>
                                         </ProForm.Group>
                                         <div>
-                                            <button type="primary" style={{position:"absolute", right:"1.3%", top:"7%",backgroundColor:'#11cbd7',border:'#11cbd7 solid',color:"white"}}>
+                                            <button type="primary" style={{position:"absolute", right:"1.3%", top:"7%",backgroundColor:'rgba(66,135,208,0.89)',border:'rgba(66,135,208,0.89) solid',color:"white"}}>
                                                 确 认
                                             </button>
                                         </div>
@@ -320,7 +319,7 @@ class HomePage extends React.Component{
                                 <ModalForm
                                     title="Enter a new set of data"
                                     trigger={
-                                        <Button type="primary" style={{position:"absolute",right:"1.3%",top:"11%",backgroundColor:'#11cbd7',border:'#11cbd7 solid'}}>
+                                        <Button type="primary" style={{position:"absolute",right:"1.3%",top:"11%",backgroundColor:'rgba(66,135,208,0.89)',border:'rgba(66,135,208,0.89) solid'}}>
                                             <PlusOutlined />
                                             Add
                                         </Button>
@@ -376,7 +375,7 @@ class HomePage extends React.Component{
                                         return true;
                                     }}
                                 >
-                                    <ProForm.Group>
+                                    <ProForm.Group >
                                         <ProFormText width="md" name="i" label="Limit time of single conversation (seconds)" placeholder="480"/>
                                         <ProFormText width="md" name="j" label="Conversation limit" placeholder="3"/>
                                         <ProFormText width="md" name="k" label="Conversation rate" placeholder="0.3"/>
@@ -412,10 +411,10 @@ class HomePage extends React.Component{
                                         <ProFormText width="md" name="C" label="Contact time control factor" placeholder="120"/>
                                     </ProForm.Group>
                                 </ModalForm>
-                                <div>
+                                <div style={{color:'white'}}>
                                     <Descriptions bordered>
-                                        <Descriptions.Item label="period_infection">{this.state.period_infection}</Descriptions.Item>
-                                        <Descriptions.Item label="total_infection">{this.state.total_infection}</Descriptions.Item>
+                                        <Descriptions.Item style={{color:'white',backgroundColor:'rgba(14,62,128,0.78)'}} label="period_infection">{this.state.period_infection}</Descriptions.Item>
+                                        <Descriptions.Item style={{color:'white',backgroundColor:'rgba(14,62,128,0.78)'}} label="total_infection">{this.state.total_infection}</Descriptions.Item>
                                     </Descriptions>
                                 </div>
                             </div>
@@ -490,7 +489,7 @@ class GridLayout {
 const getPointPos = (width, height, length) => {
     const grid = new GridLayout(150, width, height);
     const posArray = [];
-    const num = 500;
+    const num = 1;
     const radiusArray = [20, 35, 60];
     for (let i = 0; i < length; i += 1) {
         let radius;
@@ -511,7 +510,7 @@ const getPointPos = (width, height, length) => {
 const getDistance = (t, a) => (Math.sqrt((t.x - a.x) * (t.x - a.x) + (t.y - a.y) * (t.y - a.y)));
 
 
-//绘图
+//气泡
 // class Point extends React.PureComponent {
 //     render() {
 //         const { tx, ty, x, y, opacity, backgroundColor, radius, ...props } = this.props;
