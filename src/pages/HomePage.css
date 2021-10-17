@@ -9,10 +9,10 @@
     font-size: 8px;
 }
 .char_mid1{
-    width: 1200px;
-    height: 750px;
-    margin-left: 10.5%;
-    background-color: rgba(255,255,255,0.5);
+    width: 1000px;
+    height: 600px;
+    margin-left: 16%;
+    background-color: rgba(255,255,255,0.8);
 }
 .char_mid2{
     margin-left: 8.2%;
@@ -35,7 +35,7 @@
 .aa{
     /*background-color: #27496d;*/
     /*background-image: linear-gradient(180deg, #27496d 0%, #00909e 22%, #ffffff 100%);*/
-    background-color: #01172c;
+    background-color: #01172C;
     background-image: url(123.jpg);background-repeat: no-repeat;
     background-size:1200px 1100px;background-position: center center;
 }

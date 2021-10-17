@@ -99,13 +99,13 @@ class HomePage extends React.Component{
             tooltip: {},
             dataset: {
                 source: [
-                    ['product', '第一次', '第二次', '第三次'],
-                    ['第一天', 2,2,8],
-                    ['第二天', 1,2,6],
-                    ['第三天', 3,1,5],
-                    ['第四天', 3,2,9],
-                    ['第五天', 2,2,7],
-                    ['第六天', 6,2,9]
+                    ['product', '人数概率分布'],
+                    // ['第一天', 2,2,8],
+                    // ['第二天', 1,2,6],
+                    // ['第三天', 3,1,5],
+                    // ['第四天', 3,2,9],
+                    // ['第五天', 2,2,7],
+                    // ['第六天', 6,2,9]
                 ]
             },
             xAxis: { type: 'category' },
@@ -122,11 +122,12 @@ class HomePage extends React.Component{
             // title: {
             //     text: 'Stacked Line'
             // },
+            backgroundColor:'#b3ecef',
             tooltip: {
                 trigger: 'axis'
             },
             legend: {
-                data: ['第一次', '第二次', '第三次']
+                data: ['人数概率分布']
             },
             grid: {
                 left: '3%',
@@ -143,36 +144,46 @@ class HomePage extends React.Component{
                 type: 'category',
                 boundaryGap: false,
                 name :'感染人数(人)',
+                axisLine:{lineStyle:{
+                        color: "#912CEE"
+                    },
+                },
+
                 nameLocation :'middle',
-                nameGap:25,
+                nameGap:22,
                 data: ['0','7', '8', '9', '10'],
 
             },
             yAxis: {
                 type: 'value',
+                boundaryGap: false,
                 name :'频率(%)',
+                axisLine:{lineStyle:{
+                        color: "#d01f49"
+                    },
+                },
                 nameLocation :'middle',
                 nameGap:25,
             },
             series: [
                 {
-                    name: '第一次',
+                    name: '人数概率分布',
                     type: 'line',
                     stack: 'Total',
                     data: [10, 30, 10, 40, 40, 20]
                 },
-                {
-                    name: '第二次',
-                    type: 'line',
-                    stack: 'Total',
-                    data: [20, 10, 10, 20, 40, 30]
-                },
-                {
-                    name: '第三次',
-                    type: 'line',
-                    stack: 'Total',
-                    data: [10, 20, 20, 10, 10, 30]
-                }
+                // {
+                //     name: '第二次',
+                //     type: 'line',
+                //     stack: 'Total',
+                //     data: [20, 10, 10, 20, 40, 30]
+                // },
+                // {
+                //     name: '第三次',
+                //     type: 'line',
+                //     stack: 'Total',
+                //     data: [10, 20, 20, 10, 10, 30]
+                // }
             ]
         });
     }
@@ -422,7 +433,7 @@ class HomePage extends React.Component{
                         </Content>
                         {/*<Button size={"large"} type={"primary"} style={{width:"20%",margin:"1% auto",backgroundColor:'#11cbd7',border:'#11cbd7 solid'}} onClick={this.draw_chart.bind(this)}>显示图像</Button>*/}
                         <div className={'char_mid1'}>
-                            <div id="point" style={{height: 600, width:1200}} />
+                            <div id="point" style={{height: 510, width:900,position:"absolute",left:'19%',top:'35%'}} />
                         </div>
                     </Layout>
                     <Footer className={'bb'} style={{ textAlign: 'center'}}>
