@@ -117,11 +117,44 @@ class HomePage extends React.Component{
     }
     componentDidMount(){
         let myChart = echarts.init(document.getElementById('point'));
+        var Xdata = [35,45,25,30,25,45,50,46,35,25];
+        var Ydata = [];     //y轴数据
+        var x = [];         //x轴数据
+        var datt = {}
+
+        function getRepeatNum(){
+            var obj = {};
+            for(var i= 0, l = Xdata.length; i< l; i++){
+                var item = Xdata[i];
+                obj[item] = (obj[item] +1 ) ||1;
+            }
+            return obj;
+        }
+
+        datt = getRepeatNum()
+        console.log(datt)
+        var i = 0;
+        for (var p in datt ){
+
+            x[i]= p;
+            Ydata[i]= (datt[p]/Object.keys(datt).length);
+            i=i+1;
+        }
+        console.log(Ydata)
+
+
+
+
+
+
+
 
         myChart.setOption({
             // title: {
             //     text: 'Stacked Line'
             // },
+
+
             backgroundColor:'#b3ecef',
             tooltip: {
                 trigger: 'axis'
@@ -151,13 +184,13 @@ class HomePage extends React.Component{
 
                 nameLocation :'middle',
                 nameGap:22,
-                data: ['0','7', '8', '9', '10'],
+                data: x,
 
             },
             yAxis: {
                 type: 'value',
                 boundaryGap: false,
-                name :'频率(%)',
+                name :'频率',
                 axisLine:{lineStyle:{
                         color: "#d01f49"
                     },
@@ -170,20 +203,9 @@ class HomePage extends React.Component{
                     name: '人数概率分布',
                     type: 'line',
                     stack: 'Total',
-                    data: [10, 30, 10, 40, 40, 20]
+                    data: Ydata,
                 },
-                // {
-                //     name: '第二次',
-                //     type: 'line',
-                //     stack: 'Total',
-                //     data: [20, 10, 10, 20, 40, 30]
-                // },
-                // {
-                //     name: '第三次',
-                //     type: 'line',
-                //     stack: 'Total',
-                //     data: [10, 20, 20, 10, 10, 30]
-                // }
+
             ]
         });
     }
